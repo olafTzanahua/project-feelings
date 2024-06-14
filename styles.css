@@ -1,0 +1,169 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal en dispositivos móviles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegurar que el cuerpo ocupe al menos la altura de la ventana */
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    width: 400px;
+    box-sizing: border-box;
+    margin: auto; /* Centrar el contenedor */
+}
+
+button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+/* Styles for Post-its */
+.postit-container {
+    position: relative; /* Mantener posición relativa para los post-its */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Centrar los post-its */
+    padding: 20px; /* Añadir espaciado interior para mejorar visualización en móviles */
+}
+
+.postit {
+    background-color: #ffeb3b; /* Color por defecto */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    width: calc(50% - 10px); /* Ancho de cada post-it (50% del contenedor menos el espacio entre ellos) */
+    max-width: 150px; /* Ancho máximo para mantener la uniformidad */
+    height: 150px; /* Altura fija de los post-its */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-5deg); /* Rotación ligera de -5 grados */
+}
+
+.postit:hover {
+    transform: scale(1.1) ; /* Escalado y rotación al hacer hover */
+}
+
+.postit p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.hidden {
+    display: none;
+}
+
+.central {
+    background-color: #ffc107;
+}
+
+/* Diferentes colores para los Post-its */
+.postit:nth-child(1) { background-color: #ffeb3b; } /* Amarillo */
+.postit:nth-child(2) { background-color: #ffb74d; } /* Naranja */
+.postit:nth-child(3) { background-color: #4fc3f7; } /* Azul */
+.postit:nth-child(4) { background-color: #aed581; } /* Verde */
+.postit:nth-child(5) { background-color: #ba68c8; } /* Morado */
+.postit:nth-child(6) { background-color: #f06292; } /* Rosa */
+.postit:nth-child(7) { background-color: #90a4ae; } /* Gris azulado */
+.postit:nth-child(8) { background-color: #fbc02d; } /* Amarillo limón */
+.postit:nth-child(9) { background-color: #81d4fa; } /* Celeste */
+.postit:nth-child(10) { background-color: #c5e1a5; } /* Verde claro */
+.postit:nth-child(11) { background-color: #ffccbc; } /* Melocotón */
+.postit:nth-child(12) { background-color: #b39ddb; } /* Lila */
+.postit:nth-child(13) { background-color: #ffab91; } /* Salmón */
+.postit:nth-child(14) { background-color: #80cbc4; } /* Turquesa */
+.postit:nth-child(15) { background-color: #fff59d; } /* Amarillo claro */
+
+/* Modal Styles */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 300px; /* Ancho fijo del modal */
+    height: 400px; /* Altura fija del modal */
+    max-width: 100%; /* Ajustar el ancho máximo para dispositivos móviles */
+    overflow-y: auto; /* Permitir desplazamiento si el contenido excede la altura */
+    border-radius: 10px; /* Bordes redondeados */
+    color: rgb(29, 29, 29); /* Color de texto */
+    text-align: center; /* Centrar el contenido */
+    box-sizing: border-box;
+}
+
+.modal-content {
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-sizing: border-box;
+}
+
+.modal-content p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+}
+
+
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    .postit {
+        width: 100%; /* Post-its ocupan el 100% del ancho en dispositivos móviles */
+    }
+}
+.central:hover{
+    transform: translate(-50%, -50%);
+}
+.central {
+    background-color: #ffc107;
+    z-index: 10; /* Asegurar que esté sobre los otros post-its */
+    position: absolute; /* Posicionamiento absoluto para centrar */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
