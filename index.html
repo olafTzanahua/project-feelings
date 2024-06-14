@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensaje Especial</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Añadimos aquí el estilo para el fade-in */
+        body {
+            font-family: 'Indie Flower', cursive; /* Usar la fuente importada */
+            background-color: #f0f8ff;
+            margin: 0;
+            overflow-x: hidden; /* Evitar desplazamiento horizontal en dispositivos móviles */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Asegurar que el cuerpo ocupe al menos la altura de la ventana */
+            transition: opacity 1s ease; /* Añadir transición para desvanecimiento */
+            opacity: 0; /* Empezar con opacidad 0 para el efecto de fade-in */
+        }
+
+        body.fade-in {
+            opacity: 1; /* Opacidad completa para el efecto de fade-in */
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 400px;
+            box-sizing: border-box;
+            margin: auto; /* Centrar el contenedor */
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -13,8 +60,20 @@
         <button id="revealButton">Mostrar Mensaje</button>
     </div>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('fade-in');
+        });
+
         document.getElementById('revealButton').addEventListener('click', function() {
-            window.location.href = 'postits.html';
+            // Aplicar el fade-out antes de cambiar de página
+            document.body.classList.remove('fade-in');
+            document.body.style.transition = 'opacity 1s ease';
+            document.body.style.opacity = 0;
+
+            // Esperar a que termine el fade-out antes de cambiar de página
+            setTimeout(function() {
+                window.location.href = 'postits.html';
+            }, 1000);
         });
     </script>
 </body>
